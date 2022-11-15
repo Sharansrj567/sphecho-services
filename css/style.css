@@ -11,8 +11,9 @@ body {
 }
 
 .ocean {
-    height: 400px;
+    height: 600px;
     /* change the height of the waves here */
+    z-index: -1;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -22,7 +23,7 @@ body {
 }
 
 .wave {
-    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/wavePurple.svg") repeat-x;
+    background: url("https://res.cloudinary.com/teleopdassets/image/upload/v1668441019/wave_5_dzfbk2.svg") repeat-x;
     position: absolute;
     width: 200%;
     height: 100%;
@@ -44,6 +45,41 @@ body {
 }
 
 @keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.wave-inverted {
+    top: 50%;
+    background: url("https://res.cloudinary.com/teleopdassets/image/upload/v1668438035/wave_3_iiu7vo.svg") repeat-x;
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+}
+
+.wave-inverted:nth-of-type(2) {
+    bottom: 0;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.5;
+}
+
+.wave-inverted:nth-of-type(3) {
+    bottom: 0;
+    animation: wave 20s -1s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes wave-inverted {
     0% {
         transform: translateX(0);
     }
@@ -138,7 +174,7 @@ a:focus {
 
 .hero_area {
     position: relative;
-    min-height: 100vh;
+    min-height: 75vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
